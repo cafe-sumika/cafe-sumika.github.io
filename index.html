@@ -199,7 +199,8 @@
     <!-- アクセスセクション -->
     <section id="access" class="text-center" style="background: #ede5dd; padding: 2.5rem 0 2.5rem 0;">
       <h2>アクセス</h2>
-      <p>千葉県八千代氏吉橋西ノ台２１４６</p>
+      <p>千葉県八千代氏吉橋西ノ台２１４６<br />
+      東葉高速鉄道　八千代緑が丘駅　バス8分</p>
       <div style="max-width: 700px; margin: 0 auto; padding: 0 1rem;">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18318.344184970876!2d140.0678352283345!3d35.744503516588374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60227f002c425c11%3A0xbcd20022a1a3d447!2scafe%20sumika!5e0!3m2!1sja!2sjp!4v1753572636562!5m2!1sja!2sjp"
           width="100%" height="300" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy"></iframe>
@@ -312,7 +313,7 @@
     const upcomingList = document.getElementById('upcoming-days');
     if (upcomingList) {
       upcomingList.innerHTML = '';
-      const openingHours = '11:00~20:00'; // 営業時間をここで指定
+      const openingHours = '11:00~16:00'; // 営業時間をここで指定
       const upcoming = openings
         .map(dateStr => new Date(dateStr))
         .filter(date => date > now)
