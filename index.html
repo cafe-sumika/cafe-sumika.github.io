@@ -11,6 +11,10 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
   <title>cafe sumika</title>
   <link rel="icon" type="image/png" href="images/icon.png">
 
@@ -211,10 +215,11 @@
   <!-- スクリプト -->
   <script>
   async function fetchData() {
+    const version = new Date().getTime(); // キャッシュ防止用のタイムスタンプ
     const [menuRes, openingRes, noticeRes] = await Promise.all([
-      fetch('data/menu.json'),
-      fetch('data/opening_days.json'),
-      fetch('data/notices.json')
+      fetch(`data/menu.json?v=${version}`),
+      fetch(`data/opening_days.json?v=${version}`),
+      fetch(`data/notices.json?v=${version}`)
     ]);
     const menu = await menuRes.json();
     const openings = await openingRes.json();
