@@ -1,0 +1,49 @@
+[
+  {
+    "category": "coffee",
+    "name": "ブレンドコーヒー",
+    "price": 450,
+    "image": "images/coffee.png"
+  },
+  {
+    "category": "coffee",
+    "name": "カフェラテ",
+    "price": 500,
+    "image": "images/coffee.png"
+  },  {
+    "category": "coffee",
+    "name": "紅茶",
+    "price": 450,
+    "image": "images/coffee.png"
+  },
+  {
+    "category": "coffee",
+    "name": "ウーロン茶",
+    "price": 500,
+    "image": "images/coffee.png"
+  },
+  {
+    "category": "sweets",
+    "name": "チーズケーキ",
+    "price": 480,
+    "image": "images/sweets.png"
+  },
+  {
+    "category": "sweets",
+    "name": "ガトーショコラ",
+    "price": 500,
+    "image": "images/sweets.png"
+  },
+  {
+    "category": "lunch",
+    "name": "サンドイッチセット",
+    "price": 900,
+    "image": "images/lunch.png"
+  },
+  {
+    "category": "lunch",
+    "name": "キッシュプレート",
+    "price": 950,
+    "image": "images/lunch.png"
+  }
+]
