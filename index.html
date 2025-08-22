@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H12CPT8LZV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-H12CPT8LZV');
   </script>
@@ -27,79 +28,127 @@
   <!-- 自作スタイル -->
   <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
-  <div id="password-overlay" style="position:fixed;z-index:9999;inset:0;background:rgba(237,229,221,0.98);display:flex;align-items:center;justify-content:center;">
-    <form id="password-form" style="background:#fffbe6;border-radius:1rem;box-shadow:0 2px 16px #0002;padding:2rem 2.5rem;min-width:260px;">
+  <!--
+  <div id="password-overlay"
+    style="position:fixed;z-index:9999;inset:0;background:rgba(237,229,221,0.98);display:flex;align-items:center;justify-content:center;">
+    <form id="password-form"
+      style="background:#fffbe6;border-radius:1rem;box-shadow:0 2px 16px #0002;padding:2rem 2.5rem;min-width:260px;">
       <h2 class="mb-3 text-center" style="font-size:1.3rem;">パスワード入力</h2>
-      <input type="password" id="password-input" class="form-control mb-3" placeholder="パスワード" autocomplete="off" style="text-align:center;">
+      <input type="password" id="password-input" class="form-control mb-3" placeholder="パスワード" autocomplete="off"
+        style="text-align:center;">
       <button type="submit" class="btn btn-dark w-100">送信</button>
-      <div id="password-error" class="text-danger mt-2 text-center" style="display:none;font-size:0.95em;">パスワードが違います</div>
+      <div id="password-error" class="text-danger mt-2 text-center" style="display:none;font-size:0.95em;">パスワードが違います
+      </div>
     </form>
   </div>
-  <!-- ヘッダー -->
-  <header class="text-center" style="background-color: #3e2723; color: white;">
-    <h1 style="font-family: 'Montserrat', 'Playfair Display', serif; letter-spacing: 0.1em;">cafe sumika</h1>
-    <nav>
-      <ul class="list-unstyled d-flex justify-content-center gap-4">
-        <li><a href="#notice" style="color: white; text-decoration: none;">お知らせ</a></li>
-        <li><a href="#about" style="color: white; text-decoration: none;">こだわり</a></li>
-        <li><a href="#menu" style="color: white; text-decoration: none;">メニュー</a></li>
-        <li><a href="#access" style="color: white; text-decoration: none;">アクセス</a></li>
+  -->
+  <!-- ハンバーガーメニュー -->
+  <div class="menu-overlay" id="menu-overlay"></div>
+
+  <div id="hamburger-menu">
+    <button id="menu-toggle">☰</button>
+    <nav id="side-menu">
+      <ul>
+        <li><a href="#" onclick="showPage('home-page'); closeMenu();">ホーム</a></li>
+        <li><a href="#" onclick="showPage('about-page'); closeMenu();">こだわり</a></li>
+        <li><a href="#" onclick="showPage('menu-page'); closeMenu();">メニュー</a></li>
+        <li><a href="#" onclick="showPage('notice-page'); closeMenu();">営業日</a></li>
       </ul>
     </nav>
-  </header>
-
-  <!-- ヒーローセクション -->
-  <section id="hero" class="hero-section" style="background-image: url('images/top.png'); background-size: cover; background-position: center; height: 60vh; color: white;">
-    <div class="hero-text text-center d-flex justify-content-center align-items-center h-100" style="background: rgba(0, 0, 0, 0.5);">
-      <div>
-        <h1 class="hero-title" style="font-size: 3rem;">おいしい卵に出会えるカフェ</h1>
-        <p>心地よい時間をあなたに</p>
-      </div>
-    </div>
-  </section>
-
+  </div>
   <!-- メインコンテンツ -->
   <main class="container-fluid p-0 mt-0">
-
-    <!-- お知らせセクション -->
-    <section id="notice" class="mb-0 position-relative" style="
-        color:white;
-        position: relative;
-        background: url('images/notice_bg.jpg') center center/cover no-repeat, #2d211a;
-        width: 100vw;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        margin-top:0;margin-bottom:0;padding-top:3%;padding-bottom:2.5%;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-        overflow: hidden;
-      ">
-      <!-- オーバーレイ -->
-      <div style="position:absolute; inset:0; background:rgba(45,33,26,0.65); z-index:0; pointer-events:none;"></div>
-      <div class="container position-relative" style="z-index:1;">
-        <h2 class="text-center">お知らせ</h2>
-        <!-- Instagram -->
-        <div style="text-align: center;">
-          <p style="margin-top: 20px; display: inline-flex; align-items: center; gap: 10px;">
-            ★☆最新のお知らせをチェック☆★
-            <a href="https://www.instagram.com/cafe_sumika/" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-                  alt="Instagram" 
-                  style="width: 28px; height: 28px; vertical-align: middle;">
-            </a>
-          </p>
+    <div id="home-page" class="page">
+      <!-- ヒーローセクション -->
+      <!--<section id="hero" class="hero-section"
+        style="background-image: url('images/top.png'); background-size: cover; background-position: center; height: 60vh; color: white;">-->
+      <section id="hero" class="hero-section">
+        <div class="bg-slide" id="bg1"></div>
+        <div class="bg-slide" id="bg2"></div>
+        <div class="hero-text text-center d-flex justify-content-center align-items-center h-100">
+          <div>
+            <h1 style="font-size: 42px; font-family: 'Montserrat', 'Playfair Display', serif; letter-spacing: 0.1em;">
+              cafe sumika</h1>
+          </div>
         </div>
-        <ul id="notices" class="list-group" style="background: transparent;"></ul>
-      </div>
-      <div class="container position-relative" style="z-index:1;">
-        <h4 class="text-center" style="margin-top: 20px;">今後の営業予定</h4>
-        <p id="next-day" class="text-center text-muted" style="color:white!important;">計算中...</p>
-        <ul id="upcoming-days" class="list-group mx-auto p-0" style="max-width: 500px; border: none; background: transparent; color:white;"></ul>
-      </div>
-    </section>
+      </section>
+      <section class="custom-text-section">
+        <p class="custom-paragraph">
+          こだわりの卵を使ったスイーツと<br>
+          ドリンクを提供するカフェです。<br>
+        </p>
+        <p class="custom-paragraph">
+          自然豊かな場所で<br>
+          リラックスした時間をお過ごしください。
+        </p>
+      </section>
 
-    <!-- カフェについてセクション -->
-    <section id="about" class="text-center position-relative mb-0" style="
+      <!-- カフェについてセクション -->
+      <section style="padding-bottom:20px;">
+        <div class="row justify-content-center flex-nowrap" style="gap: 0.5rem;">
+          <div class="text-center position-relative">
+            <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
+              <a href="#" onclick="showPage('about-page');">
+                <img src="images/coffee.png"
+                  style="width: 100%; max-width: 320px; border-radius:1rem; aspect-ratio: 1 / 1;">
+                <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4">
+                  当店のこだわり
+                </span>
+              </a>
+            </div>
+          </div>
+      </section>
+      <!-- メニューセクション -->
+      <section style="padding-bottom:20px;">
+        <div class="row justify-content-center flex-nowrap" style="gap: 0.5rem;">
+          <div class="text-center position-relative">
+            <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
+              <a href="#" onclick="showPage('menu-page');">
+                <img src="images/menu_bg.png"
+                  style="width: 100%; max-width: 320px; border-radius:1rem; aspect-ratio: 1 / 1;">
+                <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4">
+                  ご提供メニュー
+                </span>
+              </a>
+            </div>
+          </div>
+      </section>
+      <!-- 営業日時セクション -->
+      <section style="padding-bottom:20px;">
+        <div class="row justify-content-center flex-nowrap" style="gap: 0.5rem;">
+          <div class="text-center position-relative">
+            <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
+              <a href="#" onclick="showPage('notice-page');">
+                <img src="images/calendar.png"
+                  style="width: 100%; max-width: 320px; border-radius:1rem; aspect-ratio: 1 / 1;">
+                <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4">
+                  営業日について
+                </span>
+              </a>
+            </div>
+          </div>
+      </section>
+
+      <!-- アクセスセクション -->
+      <section id="access" class="text-center" style="background: #ede5dd; padding: 2.5rem 0 2.5rem 0;">
+        <h2>Cafe sumika</h2><br />
+        <p>八千代市吉橋で美味しいたまごに出会えるカフェ</p><br />
+        <p>金曜日、土曜日　11:00-16:00 営業</p><br />
+        <p>千葉県八千代氏吉橋西ノ台２１４６<br />
+          東葉高速鉄道　八千代緑が丘駅　バス8分</p>
+        <div style="max-width: 700px; margin: 0 auto; padding: 0 1rem;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18318.344184970876!2d140.0678352283345!3d35.744503516588374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60227f002c425c11%3A0xbcd20022a1a3d447!2scafe%20sumika!5e0!3m2!1sja!2sjp!4v1753572636562!5m2!1sja!2sjp"
+            width="100%" height="300" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </section>
+    </div>
+
+    <div id="about-page" class="page">
+      <!-- カフェについてセクション -->
+      <section id="about" class="text-center position-relative mb-0" style="
         color:white;
         position: relative;
         background: url('images/about.png') center center/cover no-repeat, #2d211a;
@@ -110,24 +159,26 @@
         box-shadow: 0 4px 24px rgba(0,0,0,0.10);
         overflow: hidden;
       ">
-      <!-- オーバーレイ -->
-      <div style="
+        <!-- オーバーレイ -->
+        <div style="
         position:absolute;
         inset:0;
         background:rgba(45,33,26,0.65);
         z-index:0;
         pointer-events:none;
       "></div>
-      <div class="container position-relative" style="z-index:1;">
-        <h2>当店のこだわり</h2>
-        <p>こだわりの卵を使ったスイーツをご提供します</p>
-        <img src="images/about_bg.png" alt="こだわりイメージ" style="max-width:320px;width:90%;margin-bottom:1.5rem;display:block;margin-left:auto;margin-right:auto;">
-      </div>
-    </section>
+        <div class="container position-relative" style="z-index:1;">
+          <h2 style="margin-top:15px;margin-bottom:30px;">当店のこだわり</h2>
+          <p>こだわりの卵を使ったスイーツをご提供します</p>
+          <img src="images/about_bg.png" alt="こだわりイメージ"
+            style="max-width:320px;width:90%;margin-bottom:1.5rem;display:block;margin-left:auto;margin-right:auto;">
+        </div>
+      </section>
+    </div>
 
-    <!-- メニューセクション -->
-    <section id="menu"
-      style="
+    <div id="menu-page" class="page">
+      <!-- メニューセクション -->
+      <section id="menu" style="
         position: relative;
         background: url('images/menu_bg.png') center center/cover no-repeat, #2d211a;
         width: 100vw;
@@ -137,75 +188,104 @@
         box-shadow: 0 4px 24px rgba(0,0,0,0.10);
         overflow: hidden;
       ">
-      <!-- オーバーレイ -->
-      <div style="
+        <!-- オーバーレイ -->
+        <div style="
         position: absolute;
         inset: 0;
         background: rgba(45,33,26,0.65);
         z-index: 0;
         pointer-events: none;
       "></div>
-      <div style="position: relative; z-index: 1;">
-        <h2 class="text-center mb-4 text-white" style="text-shadow:0 2px 8px #0008;">メニュー</h2>
-        <div class="row justify-content-center flex-nowrap" style="gap: 0.5rem;">
-          <!-- ドリンク -->
-          <div class="col-4 col-md-4 col-lg-4 mb-4 text-center position-relative">
-            <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
-              <img src="images/coffee.png" alt="ドリンク" id="img-coffee" class="menu-img"
-                style="width: 100%; max-width: 320px; cursor:pointer; border-radius:1rem;">
-              <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4"
-                style="font-size:1.5rem; font-weight:bold; text-shadow:0 0 8px #000; white-space:nowrap; width:90%; max-width:280px; text-align:center; left:50%; transform:translate(-50%,-50%); pointer-events:none;">
-                drinks
-              </span>
+        <div style="position: relative; z-index: 1;">
+          <h2 style="margin-top:15px;margin-bottom:30px;" class="text-center mb-4 text-white"
+            style="text-shadow:0 2px 8px #0008;">メニュー</h2>
+          <div class="row justify-content-center flex-nowrap" style="gap: 0.5rem;">
+            <!-- ドリンク -->
+            <div class="col-4 col-md-4 col-lg-4 mb-4 text-center position-relative">
+              <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
+                <img src="images/coffee.png" alt="ドリンク" id="img-coffee" class="menu-img"
+                  style="width: 100%; max-width: 320px; cursor:pointer; border-radius:1rem;">
+                <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4"
+                  style="font-size:1.5rem; font-weight:bold; text-shadow:0 0 8px #000; white-space:nowrap; width:90%; max-width:280px; text-align:center; left:50%; transform:translate(-50%,-50%); pointer-events:none;">
+                  drinks
+                </span>
+              </div>
+            </div>
+            <!-- スイーツ -->
+            <div class="col-4 col-md-4 col-lg-4 mb-4 text-center position-relative">
+              <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
+                <img src="images/sweets.png" alt="スイーツ" id="img-sweets" class="menu-img"
+                  style="width: 100%; max-width: 320px; cursor:pointer; border-radius:1rem;">
+                <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4"
+                  style="font-size:1.5rem; font-weight:bold; text-shadow:0 0 8px #000; white-space:nowrap; width:90%; max-width:280px; text-align:center; left:50%; transform:translate(-50%,-50%); pointer-events:none;">
+                  sweets
+                </span>
+              </div>
+            </div>
+            <!-- ランチ -->
+            <div class="col-4 col-md-4 col-lg-4 mb-4 text-center position-relative">
+              <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
+                <img src="images/lunch.png" alt="ランチ" id="img-lunch" class="menu-img"
+                  style="width: 100%; max-width: 320px; cursor:pointer; border-radius:1rem;">
+                <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4"
+                  style="font-size:1.5rem; font-weight:bold; text-shadow:0 0 8px #000; white-space:nowrap; width:90%; max-width:280px; text-align:center; left:50%; transform:translate(-50%,-50%); pointer-events:none;">
+                  lunch
+                </span>
+              </div>
             </div>
           </div>
-          <!-- スイーツ -->
-          <div class="col-4 col-md-4 col-lg-4 mb-4 text-center position-relative">
-            <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
-              <img src="images/sweets.png" alt="スイーツ" id="img-sweets" class="menu-img"
-                style="width: 100%; max-width: 320px; cursor:pointer; border-radius:1rem;">
-              <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4"
-                style="font-size:1.5rem; font-weight:bold; text-shadow:0 0 8px #000; white-space:nowrap; width:90%; max-width:280px; text-align:center; left:50%; transform:translate(-50%,-50%); pointer-events:none;">
-                sweets
-              </span>
+          <div class="row mt-4">
+            <div class="col-lg-4 col-md-12 mb-3">
+              <div id="coffee" class="menu-category d-none"></div>
             </div>
-          </div>
-          <!-- ランチ -->
-          <div class="col-4 col-md-4 col-lg-4 mb-4 text-center position-relative">
-            <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
-              <img src="images/lunch.png" alt="ランチ" id="img-lunch" class="menu-img"
-                style="width: 100%; max-width: 320px; cursor:pointer; border-radius:1rem;">
-              <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4"
-                style="font-size:1.5rem; font-weight:bold; text-shadow:0 0 8px #000; white-space:nowrap; width:90%; max-width:280px; text-align:center; left:50%; transform:translate(-50%,-50%); pointer-events:none;">
-                lunch
-              </span>
+            <div class="col-lg-4 col-md-12 mb-3">
+              <div id="sweets" class="menu-category d-none"></div>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-3">
+              <div id="lunch" class="menu-category d-none"></div>
             </div>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-lg-4 col-md-12 mb-3">
-            <div id="coffee" class="menu-category d-none"></div>
-          </div>
-          <div class="col-lg-4 col-md-12 mb-3">
-            <div id="sweets" class="menu-category d-none"></div>
-          </div>
-          <div class="col-lg-4 col-md-12 mb-3">
-            <div id="lunch" class="menu-category d-none"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- アクセスセクション -->
-    <section id="access" class="text-center" style="background: #ede5dd; padding: 2.5rem 0 2.5rem 0;">
-      <h2>アクセス</h2>
-      <p>千葉県八千代氏吉橋西ノ台２１４６<br />
-      東葉高速鉄道　八千代緑が丘駅　バス8分</p>
-      <div style="max-width: 700px; margin: 0 auto; padding: 0 1rem;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18318.344184970876!2d140.0678352283345!3d35.744503516588374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60227f002c425c11%3A0xbcd20022a1a3d447!2scafe%20sumika!5e0!3m2!1sja!2sjp!4v1753572636562!5m2!1sja!2sjp"
-          width="100%" height="300" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-    </section>
+    </div>
+    <div id="notice-page" class="page">
+      <!-- お知らせセクション -->
+      <section id="notice" class="mb-0 position-relative" style="
+        color:white;
+        position: relative;
+        background: url('images/notice_bg.jpg') center center/cover no-repeat, #2d211a;
+        width: 100vw;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        margin-top:0;margin-bottom:0;padding-top:3%;padding-bottom:2.5%;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        overflow: hidden;
+      ">
+        <!-- オーバーレイ -->
+        <div style="position:absolute; inset:0; background:rgba(45,33,26,0.65); z-index:0; pointer-events:none;"></div>
+        <div class="container position-relative" style="z-index:1;">
+          <h2 class="text-center" style="margin-top:15px;margin-bottom:30px;">お知らせ</h2>
+          <!-- Instagram -->
+          <div style="text-align: center;">
+            <p style="margin-top: 20px; display: inline-flex; align-items: center; gap: 10px;">
+              Instagramで最新のお知らせをチェック
+              <a href="https://www.instagram.com/cafe_sumika/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"
+                  style="width: 28px; height: 28px; vertical-align: middle;">
+              </a>
+            </p>
+          </div>
+          <ul id="notices" class="list-group" style="background: transparent;"></ul>
+        </div>
+        <div class="container position-relative" style="z-index:1;">
+          <h4 class="text-center" style="margin-top: 20px;">今後の営業予定</h4>
+          <p id="next-day" class="text-center text-muted" style="color:white!important;">計算中...</p>
+          <ul id="upcoming-days" class="list-group mx-auto p-0"
+            style="max-width: 500px; border: none; background: transparent; color:white;"></ul>
+        </div>
+      </section>
+    </div>
   </main>
 
   <!-- フッター -->
@@ -215,206 +295,283 @@
 
   <!-- スクリプト -->
   <script>
-  async function fetchData() {
-    const version = new Date().getTime(); // キャッシュ防止用のタイムスタンプ
-    const [menuRes, openingRes, noticeRes] = await Promise.all([
-      fetch(`data/menu.json?v=${version}`),
-      fetch(`data/opening_days.json?v=${version}`),
-      fetch(`data/notices.json?v=${version}`)
-    ]);
-    const menu = await menuRes.json();
-    const openings = await openingRes.json();
-    const notices = await noticeRes.json();
+    async function fetchData() {
+      const version = new Date().getTime(); // キャッシュ防止用のタイムスタンプ
+      const [menuRes, openingRes, noticeRes] = await Promise.all([
+        fetch(`data/menu.json?v=${version}`),
+        fetch(`data/opening_days.json?v=${version}`),
+        fetch(`data/notices.json?v=${version}`)
+      ]);
+      const menu = await menuRes.json();
+      const openings = await openingRes.json();
+      const notices = await noticeRes.json();
 
-    // メニュー描画
-    ['coffee', 'sweets', 'lunch'].forEach(category => {
-      const categoryContent = document.getElementById(category);
-      categoryContent.innerHTML = ""; // 初期化
-      const items = menu.filter(item => item.category === category);
+      //ハンバーガーアイコン制御
+      const menuToggle = document.getElementById('menu-toggle');
+      const sideMenu = document.getElementById('side-menu');
+      const menuOverlay = document.getElementById('menu-overlay');
 
-      // 画面幅でレイアウトを切り替え
-      const isMobile = window.matchMedia('(max-width: 767px)').matches;
-      const row = document.createElement('div');
-      // PCは4列、タブレット3列、スマホ2列
-      row.className = isMobile
-        ? 'row g-1'
-        : 'row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2';
+      menuToggle.addEventListener('click', () => {
+        sideMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+      });
 
-      items.forEach(item => {
-        const col = document.createElement('div');
-        col.className = isMobile
-          ? 'col-6 mb-2 px-1'
-          : 'col mb-2 px-1';
-        col.innerHTML = `
+      menuOverlay.addEventListener('click', closeMenu);
+
+      function closeMenu() {
+        sideMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+      }
+
+      // メニュー描画
+      ['coffee', 'sweets', 'lunch'].forEach(category => {
+        const categoryContent = document.getElementById(category);
+        categoryContent.innerHTML = ""; // 初期化
+        const items = menu.filter(item => item.category === category);
+
+        // 画面幅でレイアウトを切り替え
+        const isMobile = window.matchMedia('(max-width: 767px)').matches;
+        const row = document.createElement('div');
+        // PCは4列、タブレット3列、スマホ2列
+        row.className = isMobile
+          ? 'row g-1'
+          : 'row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2';
+
+        items.forEach(item => {
+          const col = document.createElement('div');
+          col.className = isMobile
+            ? 'col-6 mb-2 px-1'
+            : 'col mb-2 px-1';
+          col.innerHTML = `
           <div class="card h-100" style="background: #fffbe6;">
             <div style="padding: 1rem;">
               <img src="${item.image}" alt="${item.name}" class="card-img-top" style="width: 100%; max-height: 180px; object-fit: contain; border-radius: 1rem;">
             </div>
             <div class="card-body text-center" style="background: #fffbe6;">
               <h5 class="card-title">${item.name}</h5>
-              <p class="card-text">¥${item.price}</p>
+              <!-- <p class="card-text">¥${item.price}</p> -->
             </div>
           </div>
         `;
-        row.appendChild(col);
-      });
-      categoryContent.appendChild(row);
-    });
-
-    // カテゴリ画像クリックで展開/非表示＋選択状態
-    ['coffee', 'sweets', 'lunch'].forEach(category => {
-      document.getElementById('img-' + category).addEventListener('click', () => {
-        const isVerticalMobile =
-          window.matchMedia('(max-width: 767px) and (orientation: portrait)').matches;
-        const target = document.getElementById(category);
-        const img = document.getElementById('img-' + category);
-
-        // すでに展開中なら閉じるだけ
-        if (!target.classList.contains('d-none')) {
-          target.classList.add('d-none');
-          img.style.boxShadow = '';
-          return;
-        }
-
-        // すべて閉じる＆選択解除
-        ['coffee', 'sweets', 'lunch'].forEach(cat => {
-          document.getElementById(cat).classList.add('d-none');
-          document.getElementById('img-' + cat).style.boxShadow = '';
+          row.appendChild(col);
         });
-
-        if (isVerticalMobile) {
-          // スマホ縦表示：カテゴリの下にだけ展開
-          const wrapper = img.closest('.menu-img-wrapper');
-          target.classList.remove('d-none');
-          img.style.boxShadow = '0 0 0 4px #ffb300, 0 4px 16px rgba(0,0,0,0.15)';
-          wrapper.parentNode.insertBefore(target, wrapper.nextSibling);
-
-          setTimeout(() => {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 100);
-        } else {
-          // PC・スマホ横表示：カテゴリ画像3つの下（画面いっぱい）に展開
-          const menuRow = document.querySelector('#menu .row.justify-content-center');
-          target.classList.remove('d-none');
-          img.style.boxShadow = '0 0 0 4px #ffb300, 0 4px 16px rgba(0,0,0,0.15)';
-          menuRow.parentNode.insertBefore(target, menuRow.nextSibling);
-        }
+        categoryContent.appendChild(row);
       });
-    });
 
-    // 営業日描画
-    const now = new Date();
-    const next = openings.find(dateStr => new Date(dateStr) > now);
-    document.getElementById('next-day').textContent = next
-      ? `次の営業日は ${new Date(next).toLocaleDateString('ja-JP')}（${['日','月','火','水','木','金','土'][new Date(next).getDay()]}）です`
-      : '次の営業日は未定です';
+      // カテゴリ画像クリックで展開/非表示＋選択状態
+      ['coffee', 'sweets', 'lunch'].forEach(category => {
+        document.getElementById('img-' + category).addEventListener('click', () => {
+          const isVerticalMobile =
+            window.matchMedia('(max-width: 767px) and (orientation: portrait)').matches;
+          const target = document.getElementById(category);
+          const img = document.getElementById('img-' + category);
 
-    // 今後の営業日リスト描画（直近8件・おしゃれなデザイン＋営業時間）
-    const upcomingList = document.getElementById('upcoming-days');
-    if (upcomingList) {
-      upcomingList.innerHTML = '';
-      const openingHours = '11:00~16:00'; // 営業時間をここで指定
-      const upcoming = openings
-        .map(dateStr => new Date(dateStr))
-        .filter(date => date > now)
-        .slice(0, 8);
-      if (upcoming.length === 0) {
-        const li = document.createElement('li');
-        li.className = 'list-group-item border-0 bg-light text-center rounded shadow-sm my-2';
-        li.textContent = '今後の営業日は未定です';
-        upcomingList.appendChild(li);
-      } else {
-        upcoming.forEach(date => {
+          // すでに展開中なら閉じるだけ
+          if (!target.classList.contains('d-none')) {
+            target.classList.add('d-none');
+            img.style.boxShadow = '';
+            return;
+          }
+
+          // すべて閉じる＆選択解除
+          ['coffee', 'sweets', 'lunch'].forEach(cat => {
+            document.getElementById(cat).classList.add('d-none');
+            document.getElementById('img-' + cat).style.boxShadow = '';
+          });
+
+          if (isVerticalMobile) {
+            // スマホ縦表示：カテゴリの下にだけ展開
+            const wrapper = img.closest('.menu-img-wrapper');
+            target.classList.remove('d-none');
+            img.style.boxShadow = '0 0 0 4px #ffb300, 0 4px 16px rgba(0,0,0,0.15)';
+            wrapper.parentNode.insertBefore(target, wrapper.nextSibling);
+
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+          } else {
+            // PC・スマホ横表示：カテゴリ画像3つの下（画面いっぱい）に展開
+            const menuRow = document.querySelector('#menu .row.justify-content-center');
+            target.classList.remove('d-none');
+            img.style.boxShadow = '0 0 0 4px #ffb300, 0 4px 16px rgba(0,0,0,0.15)';
+            menuRow.parentNode.insertBefore(target, menuRow.nextSibling);
+          }
+        });
+      });
+
+      // 営業日描画
+      const now = new Date();
+      const next = openings.find(dateStr => new Date(dateStr) > now);
+      document.getElementById('next-day').textContent = next
+        ? `次の営業日は ${new Date(next).toLocaleDateString('ja-JP')}（${['日', '月', '火', '水', '木', '金', '土'][new Date(next).getDay()]}）です`
+        : '次の営業日は未定です';
+
+      // 今後の営業日リスト描画（直近8件＋営業時間）
+      const upcomingList = document.getElementById('upcoming-days');
+      if (upcomingList) {
+        upcomingList.innerHTML = '';
+        const openingHours = '11:00~16:00'; // 営業時間をここで指定
+        const upcoming = openings
+          .map(dateStr => new Date(dateStr))
+          .filter(date => date > now)
+          .slice(0, 8);
+        if (upcoming.length === 0) {
           const li = document.createElement('li');
-          li.className = 'list-group-item d-flex align-items-center justify-content-between border-0 bg-white rounded shadow-sm my-1 px-2 py-1';
-          li.innerHTML = `
+          li.className = 'list-group-item border-0 bg-light text-center rounded shadow-sm my-2';
+          li.textContent = '今後の営業日は未定です';
+          upcomingList.appendChild(li);
+        } else {
+          upcoming.forEach(date => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex align-items-center justify-content-between border-0 bg-white rounded shadow-sm my-1 px-2 py-1';
+            li.innerHTML = `
             <div>
               <span style="font-weight:bold;font-size:1em;">
                 ${date.toLocaleDateString('ja-JP')}
-                <span class="text-secondary" style="font-size:0.9em;">（${['日','月','火','水','木','金','土'][date.getDay()]}）</span>
+                <span class="text-secondary" style="font-size:0.9em;">（${['日', '月', '火', '水', '木', '金', '土'][date.getDay()]}）</span>
               </span>
             </div>
             <span class="badge rounded-pill bg-warning text-dark px-2 py-1" style="font-size:0.95em; letter-spacing:0.03em;">
               ${openingHours}
             </span>
           `;
-          upcomingList.appendChild(li);
-        });
+            upcomingList.appendChild(li);
+          });
+        }
+      }
+
+      // お知らせ描画
+      const noticeList = document.getElementById('notices');
+      notices.forEach(n => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item';
+        li.textContent = `${n.date} - ${n.message}`;
+        noticeList.appendChild(li);
+      });
+      showPage('home-page');
+    }
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.style.display = 'none';
+      });
+      const target = document.getElementById(pageId);
+      if (target) {
+        target.style.display = 'block';
+        window.scrollTo(0, 0);
       }
     }
 
-    // お知らせ描画
-    const noticeList = document.getElementById('notices');
-    notices.forEach(n => {
-      const li = document.createElement('li');
-      li.className = 'list-group-item';
-      li.textContent = `${n.date} - ${n.message}`;
-      noticeList.appendChild(li);
+    function closeMenu() {
+      document.getElementById('side-menu').classList.remove('active');
+      document.getElementById('menu-overlay').classList.remove('active');
+    }
+    fetchData();
+    document.addEventListener("DOMContentLoaded", () => {
+      const bg1 = document.getElementById("bg1");
+      const bg2 = document.getElementById("bg2");
+
+      const images = [
+        "images/top.png",
+        "images/inner.png"
+      ];
+
+      let currentIndex = 0;
+      let showingBg1 = true;
+
+      // 初期表示
+      bg1.style.backgroundImage = `url(${images[currentIndex]})`;
+      bg1.classList.add("active");
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        const nextImage = images[currentIndex];
+
+        if (showingBg1) {
+          bg2.style.backgroundImage = `url(${nextImage})`;
+          bg2.classList.add("active");
+          bg1.classList.remove("active");
+        } else {
+          bg1.style.backgroundImage = `url(${nextImage})`;
+          bg1.classList.add("active");
+          bg2.classList.remove("active");
+        }
+
+        showingBg1 = !showingBg1;
+      }, 5000);
     });
-  }
-  fetchData();
   </script>
 
   <!-- 追加：スマホ用のヒーローセクション調整CSS -->
   <style>
     @media (max-width: 767px) {
       #hero.hero-section {
-        height: 28vh !important; /* 縦を短く */
-        background-position: center 30%; /* 上下を少しカット */
+        height: 28vh !important;
+        /* 縦を短く */
+        background-position: center 30%;
+        /* 上下を少しカット */
       }
+
       .hero-title {
-        font-size: 1.3rem !important; /* スマホ時は小さめで1行に */
+        font-size: 1.3rem !important;
+        /* スマホ時は小さめで1行に */
         letter-spacing: 0.02em;
         white-space: nowrap;
       }
     }
   </style>
   <style>
-  @media (min-width: 768px) {
-    #menu .row.justify-content-center {
-      flex-wrap: nowrap !important;
-      overflow-x: visible !important;
+    @media (min-width: 768px) {
+      #menu .row.justify-content-center {
+        flex-wrap: nowrap !important;
+        overflow-x: visible !important;
+      }
+
+      #menu .col-4 {
+        max-width: 33.3333%;
+        flex: 0 0 33.3333%;
+      }
+
+      #menu .menu-img-wrapper {
+        max-width: 320px !important;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #menu .menu-img {
+        width: 100% !important;
+        max-width: 320px !important;
+      }
     }
-    #menu .col-4 {
-      max-width: 33.3333%;
-      flex: 0 0 33.3333%;
+
+    @media (max-width: 767px) {
+      #menu .row.justify-content-center {
+        flex-wrap: wrap !important;
+      }
+
+      #menu .col-4 {
+        max-width: 100%;
+        flex: 0 0 100%;
+      }
+
+      #menu .menu-img-wrapper {
+        max-width: 80vw !important;
+      }
+
+      #menu .menu-img {
+        width: 80vw !important;
+        max-width: 500px !important;
+      }
     }
-    #menu .menu-img-wrapper {
-      max-width: 320px !important;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    #menu .menu-img {
-      width: 100% !important;
-      max-width: 320px !important;
-    }
-  }
-  @media (max-width: 767px) {
-    #menu .row.justify-content-center {
-      flex-wrap: wrap !important;
-    }
-    #menu .col-4 {
-      max-width: 100%;
-      flex: 0 0 100%;
-    }
-    #menu .menu-img-wrapper {
-      max-width: 80vw !important;
-    }
-    #menu .menu-img {
-      width: 80vw !important;
-      max-width: 500px !important;
-    }
-  }
   </style>
 
   <script>
     // パスワード保護
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const overlay = document.getElementById('password-overlay');
       const form = document.getElementById('password-form');
       const input = document.getElementById('password-input');
       const error = document.getElementById('password-error');
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
         if (input.value === 'sumika') {
           overlay.style.display = 'none';
@@ -430,5 +587,5 @@
     });
   </script>
 </body>
-</html>
 
+</html>
