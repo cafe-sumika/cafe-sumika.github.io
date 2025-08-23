@@ -609,6 +609,32 @@
       input.focus();
       document.body.style.overflow = 'hidden';
     });
+    document.addEventListener('DOMContentLoaded', function () {
+      const overlay = document.getElementById('password-overlay');
+      const form = document.getElementById('password-form');
+      const input = document.getElementById('password-input');
+      const error = document.getElementById('password-error');
+      const hamburger = document.getElementById('hamburger-menu'); // ← 追加
+
+      // 初期状態でハンバーガー非表示
+      hamburger.style.display = 'none';
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (input.value === 'sumika') {
+          overlay.style.display = 'none';
+          document.body.style.overflow = '';
+          hamburger.style.display = 'block'; // ← パスワードが正しいとき表示
+        } else {
+          error.style.display = 'block';
+          input.value = '';
+          input.focus();
+        }
+      });
+
+      input.focus();
+      document.body.style.overflow = 'hidden';
+    });
   </script>
 </body>
 
