@@ -30,6 +30,7 @@
 </head>
 
 <body>
+  <!--
   <div id="password-overlay"
     style="position:fixed;z-index:9999;inset:0;background:rgba(237,229,221,0.98);display:flex;align-items:center;justify-content:center;">
     <form id="password-form"
@@ -41,7 +42,7 @@
       <div id="password-error" class="text-danger mt-2 text-center" style="display:none;font-size:0.95em;">パスワードが違います
       </div>
     </form>
-  </div>
+  </div>-->
   <!-- ハンバーガーメニュー -->
   <div class="menu-overlay" id="menu-overlay"></div>
 
@@ -92,8 +93,8 @@
           <div class="text-center position-relative">
             <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
               <a href="#" onclick="showPage('about-page');">
-                <img src="images/coffee.png"
-                  style="width: 100%; max-width: 320px; border-radius:1rem; aspect-ratio: 1 / 1;">
+                <img src="images/kodawari.JPG"
+                  style="width: 320px; height: 320px; object-fit: cover; border-radius:1rem;">
                 <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4">
                   当店のこだわり
                 </span>
@@ -107,8 +108,7 @@
           <div class="text-center position-relative">
             <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
               <a href="#" onclick="showPage('menu-page');">
-                <img src="images/menu_bg.png"
-                  style="width: 100%; max-width: 320px; border-radius:1rem; aspect-ratio: 1 / 1;">
+                <img src="images/lunch.png" style="width: 320px; height: 320px; object-fit: cover; border-radius:1rem;">
                 <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4">
                   ご提供メニュー
                 </span>
@@ -122,8 +122,8 @@
           <div class="text-center position-relative">
             <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
               <a href="#" onclick="showPage('notice-page');">
-                <img src="images/calendar.png"
-                  style="width: 100%; max-width: 320px; border-radius:1rem; aspect-ratio: 1 / 1;">
+                <img src="images/opening.JPG"
+                  style="width: 320px; height: 320px; object-fit: cover; border-radius:1rem;">
                 <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4">
                   営業日について
                 </span>
@@ -189,62 +189,159 @@
         box-shadow: 0 4px 24px rgba(0,0,0,0.10);
         overflow: hidden;
       ">
-        <!-- オーバーレイ -->
-        <div style="
-        position: absolute;
-        inset: 0;
-        background: rgba(45,33,26,0.65);
-        z-index: 0;
-        pointer-events: none;
-      "></div>
-        <div style="position: relative; z-index: 1;">
-          <h2 style="margin-top:15px;margin-bottom:30px;" class="text-center mb-4 text-white"
-            style="text-shadow:0 2px 8px #0008;">メニュー</h2>
-          <div class="row justify-content-center flex-nowrap" style="gap: 0.5rem;">
-            <!-- ドリンク -->
-            <div class="col-4 col-md-4 col-lg-4 mb-4 text-center position-relative">
-              <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
-                <img src="images/coffee.png" alt="ドリンク" id="img-coffee" class="menu-img"
-                  style="width: 100%; max-width: 320px; cursor:pointer; border-radius:1rem;">
-                <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4"
-                  style="font-size:1.5rem; font-weight:bold; text-shadow:0 0 8px #000; white-space:nowrap; width:90%; max-width:280px; text-align:center; left:50%; transform:translate(-50%,-50%); pointer-events:none;">
-                  drinks
-                </span>
-              </div>
-            </div>
-            <!-- スイーツ -->
-            <div class="col-4 col-md-4 col-lg-4 mb-4 text-center position-relative">
-              <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
-                <img src="images/sweets.png" alt="スイーツ" id="img-sweets" class="menu-img"
-                  style="width: 100%; max-width: 320px; cursor:pointer; border-radius:1rem;">
-                <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4"
-                  style="font-size:1.5rem; font-weight:bold; text-shadow:0 0 8px #000; white-space:nowrap; width:90%; max-width:280px; text-align:center; left:50%; transform:translate(-50%,-50%); pointer-events:none;">
-                  sweets
-                </span>
-              </div>
-            </div>
-            <!-- ランチ -->
-            <div class="col-4 col-md-4 col-lg-4 mb-4 text-center position-relative">
-              <div class="menu-img-wrapper position-relative d-inline-block w-100" style="max-width: 100%;">
-                <img src="images/lunch.png" alt="ランチ" id="img-lunch" class="menu-img"
-                  style="width: 100%; max-width: 320px; cursor:pointer; border-radius:1rem;">
-                <span class="menu-label position-absolute top-50 start-50 translate-middle text-white px-4"
-                  style="font-size:1.5rem; font-weight:bold; text-shadow:0 0 8px #000; white-space:nowrap; width:90%; max-width:280px; text-align:center; left:50%; transform:translate(-50%,-50%); pointer-events:none;">
-                  lunch
-                </span>
-              </div>
+
+        <!-- 食事画像 -->
+        <div class="section-image">
+          <h2>Menu</h2>
+        </div>
+
+        <!-- 食事メニュー一覧 -->
+        <div class="menu-list">
+          <div class="menu-item">
+            <img src="images/dammy.jpg" alt="サラダプレート">
+            <div class="content">
+              <h3>サラダプレート</h3>
+              <p>新鮮な野菜をたっぷり使用した、ヘルシーでボリューム満点のプレートです。</p>
             </div>
           </div>
-          <div class="row mt-4">
-            <div class="col-lg-4 col-md-12 mb-3">
-              <div id="coffee" class="menu-category d-none"></div>
+          <div class="menu-item">
+            <img src="images/dammy.jpg" alt="生ハム＆たまごサンドプレート">
+            <div class="content">
+              <h3>生ハム＆たまごサンドプレート</h3>
+              <p>香ばしいパンに、やわらかな卵と生ハムをサンドした人気メニュー。</p>
             </div>
-            <div class="col-lg-4 col-md-12 mb-3">
-              <div id="sweets" class="menu-category d-none"></div>
+          </div>
+          <div class="menu-item">
+            <img src="images/dammy.jpg" alt="幸せふあふあたまごシフォン">
+            <div class="content">
+              <h3>幸せふあふあたまごシフォン</h3>
+              <p>プレーン・ココア・レモンの3種類をご用意しています。</p>
             </div>
-            <div class="col-lg-4 col-md-12 mb-3">
-              <div id="lunch" class="menu-category d-none"></div>
+          </div>
+          <div class="menu-item">
+            <img src="images/dammy.jpg" alt="なめらかプリン">
+            <div class="content">
+              <h3>なめらかプリン</h3>
             </div>
+          </div>
+          <div class="menu-item">
+            <img src="images/dammy.jpg" alt="コーヒーゼリー">
+            <div class="content">
+              <h3>コーヒーゼリー</h3>
+            </div>
+          </div>
+          <div class="menu-item">
+            <img src="images/dammy.jpg" alt="アフォガード">
+            <div class="content">
+              <h3>アフォガード</h3>
+              <p>濃厚なバニラアイスに熱々のエスプレッソをかけた大人のデザート。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ドリンク画像 -->
+        <div class="section-image">
+          <h2>Drink Menu</h2>
+        </div>
+
+        <!-- ドリンクカテゴリと一覧 -->
+        <div class="drink-category">
+
+          <span>コーヒー</span>
+        </div>
+        <div class="drink-items">
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">アメリカン<img src="images/hot_icon.png" alt="HOT" class="icon"></div>
+          </div>
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">アイスコーヒー<img src="images/ice_icon.png" alt="ICE" class="icon"></div>
+          </div>
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">カフェラテ<img src="images/hot_icon.png" alt="HOT" class="icon"></div>
+          </div>
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">アイスカフェラテ<img src="images/ice_icon.png" alt="ICE" class="icon"></div>
+          </div>
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">カフェモカ<img src="images/hot_icon.png" alt="HOT" class="icon"></div>
+          </div>
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">アイスカフェモカ<img src="images/ice_icon.png" alt="ICE" class="icon"></div>
+          </div>
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">アイスカフェリモーネ<img src="images/ice_icon.png" alt="ICE" class="icon"></div>
+          </div>
+        </div>
+
+        <div class="drink-category">
+          <img src="images/hot_icon.png" alt="HOT" class="icon">
+          <span>ホットティー</span>
+        </div>
+        <div class="drink-items">
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">オーガニックダージリンエステート</div>
+          </div>
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">オーガニックアールグレイ</div>
+          </div>
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">カモミールシトラス</div>
+          </div>
+        </div>
+
+        <div class="drink-category">
+          <img src="images/ice_icon.png" alt="ICE" class="icon">
+          <span>アイスティー</span>
+        </div>
+        <div class="drink-items">
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">ピュアブラック</div>
+          </div>
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">ワイルドベリーハイビスカスレモネード</div>
+          </div>
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">思いっきりアイスレモンティー</div>
+          </div>
+        </div>
+
+        <div class="drink-category">
+          <img src="images/ice_icon.png" alt="ICE" class="icon">
+          <span>キッズドリンク</span>
+        </div>
+        <div class="drink-items">
+          <div class="drink-item">
+            <div class="content">オレンジジュース</div>
+          </div>
+          <div class="drink-item">
+            <div class="content">自家製レモネード</div>
+          </div>
+        </div>
+
+        <div class="drink-category">
+          <img src="images/ice_icon.png" alt="ICE" class="icon">
+          <span>カフェラテ</span>
+        </div>
+        <div class="drink-items">
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">抹茶カフェラテ</div>
+          </div>
+          <div class="drink-item"><img src="images/dammy.jpg">
+            <div class="content">黒糖カフェラテ</div>
+          </div>
+        </div>
+
+        <div class="drink-category">
+          <span>その他</span>
+        </div>
+        <div class="drink-items">
+          <div class="drink-item">
+            <img src="images/dammy.jpg">
+            <div class="content">チョコレートドリンク <img src="images/hot_icon.png" alt="HOT" class="icon"></div>
+          </div>
+          <div class="drink-item">
+            <img src="images/dammy.jpg">
+            <div class="content">アイスチョコレートドリンク <img src="images/ice_icon.png" alt="ICE" class="icon"></div>
           </div>
         </div>
       </section>
@@ -324,82 +421,6 @@
         menuOverlay.classList.remove('active');
       }
 
-      // メニュー描画
-      ['coffee', 'sweets', 'lunch'].forEach(category => {
-        const categoryContent = document.getElementById(category);
-        categoryContent.innerHTML = ""; // 初期化
-        const items = menu.filter(item => item.category === category);
-
-        // 画面幅でレイアウトを切り替え
-        const isMobile = window.matchMedia('(max-width: 767px)').matches;
-        const row = document.createElement('div');
-        // PCは4列、タブレット3列、スマホ2列
-        row.className = isMobile
-          ? 'row g-1'
-          : 'row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2';
-
-        items.forEach(item => {
-          const col = document.createElement('div');
-          col.className = isMobile
-            ? 'col-6 mb-2 px-1'
-            : 'col mb-2 px-1';
-          col.innerHTML = `
-          <div class="card h-100" style="background: #fffbe6;">
-            <div style="padding: 1rem;">
-              <img src="${item.image}" alt="${item.name}" class="card-img-top" style="width: 100%; max-height: 180px; object-fit: contain; border-radius: 1rem;">
-            </div>
-            <div class="card-body text-center" style="background: #fffbe6;">
-              <h5 class="card-title">${item.name}</h5>
-              <!-- <p class="card-text">¥${item.price}</p> -->
-            </div>
-          </div>
-        `;
-          row.appendChild(col);
-        });
-        categoryContent.appendChild(row);
-      });
-
-      // カテゴリ画像クリックで展開/非表示＋選択状態
-      ['coffee', 'sweets', 'lunch'].forEach(category => {
-        document.getElementById('img-' + category).addEventListener('click', () => {
-          const isVerticalMobile =
-            window.matchMedia('(max-width: 767px) and (orientation: portrait)').matches;
-          const target = document.getElementById(category);
-          const img = document.getElementById('img-' + category);
-
-          // すでに展開中なら閉じるだけ
-          if (!target.classList.contains('d-none')) {
-            target.classList.add('d-none');
-            img.style.boxShadow = '';
-            return;
-          }
-
-          // すべて閉じる＆選択解除
-          ['coffee', 'sweets', 'lunch'].forEach(cat => {
-            document.getElementById(cat).classList.add('d-none');
-            document.getElementById('img-' + cat).style.boxShadow = '';
-          });
-
-          if (isVerticalMobile) {
-            // スマホ縦表示：カテゴリの下にだけ展開
-            const wrapper = img.closest('.menu-img-wrapper');
-            target.classList.remove('d-none');
-            img.style.boxShadow = '0 0 0 4px #ffb300, 0 4px 16px rgba(0,0,0,0.15)';
-            wrapper.parentNode.insertBefore(target, wrapper.nextSibling);
-
-            setTimeout(() => {
-              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-          } else {
-            // PC・スマホ横表示：カテゴリ画像3つの下（画面いっぱい）に展開
-            const menuRow = document.querySelector('#menu .row.justify-content-center');
-            target.classList.remove('d-none');
-            img.style.boxShadow = '0 0 0 4px #ffb300, 0 4px 16px rgba(0,0,0,0.15)';
-            menuRow.parentNode.insertBefore(target, menuRow.nextSibling);
-          }
-        });
-      });
-
       // 営業日描画
       const now = new Date();
       const next = openings.find(dateStr => new Date(dateStr) > now);
@@ -472,8 +493,10 @@
       const bg2 = document.getElementById("bg2");
 
       const images = [
-        "images/top.png",
-        "images/inner.png"
+        "images/top_1.JPG",
+        "images/top_2.JPG",
+        "images/top_3.JPG",
+        "images/top_4.JPG"
       ];
 
       let currentIndex = 0;
@@ -498,7 +521,7 @@
         }
 
         showingBg1 = !showingBg1;
-      }, 5000);
+      }, 4000);
     });
   </script>
 
@@ -567,6 +590,7 @@
 
   <script>
     // パスワード保護
+    /*
     document.addEventListener('DOMContentLoaded', function () {
       const overlay = document.getElementById('password-overlay');
       const form = document.getElementById('password-form');
@@ -585,7 +609,7 @@
       });
       input.focus();
       document.body.style.overflow = 'hidden';
-    });
+    });*/
   </script>
 </body>
 
