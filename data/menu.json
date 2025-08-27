@@ -1,49 +1,177 @@
 [
   {
-    "category": "coffee",
-    "name": "ブレンドコーヒー",
-    "price": 450,
-    "image": "images/coffee.png"
+    "category": "Menu",
+    "name": "サラダプレート",
+    "type": "",
+    "description": "地元農家の旬のミックスサラダ、スペイン産生ハム、ブランドたまごとスープ",
+    "image": "images/dammy.jpg"
   },
   {
-    "category": "coffee",
+    "category": "Menu",
+    "name": "生ハム＆たまごサンドプレート",
+    "type": "",
+    "description": "スペイン産生ハム、たまご、トマトのサンドとフルーツ",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "Menu",
+    "name": "幸せふあふあたまごシフォン",
+    "type": "",
+    "description": "プレーン、ココア、レモンの3種から選べるシフォンケーキ",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "Menu",
+    "name": "なめらかプリン",
+    "type": "",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "Menu",
+    "name": "コーヒーゼリー",
+    "type": "",
+    "description": "バニラアイス付",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "Menu",
+    "name": "アフォガード",
+    "type": "",
+    "description": "濃厚バニラアイスにエスプレッソをかける大人のアイスクリーム",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "コーヒー",
+    "name": "アメリカン",
+    "type": "HOT",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "コーヒー",
+    "name": "アイスコーヒー",
+    "type": "ICE",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "コーヒー",
     "name": "カフェラテ",
-    "price": 500,
-    "image": "images/coffee.png"
-  },  {
-    "category": "coffee",
-    "name": "紅茶",
-    "price": 450,
-    "image": "images/coffee.png"
+    "type": "HOT",
+    "description": "",
+    "image": "images/dammy.jpg"
   },
   {
-    "category": "coffee",
-    "name": "ウーロン茶",
-    "price": 500,
-    "image": "images/coffee.png"
+    "category": "コーヒー",
+    "name": "アイスカフェラテ",
+    "type": "ICE",
+    "description": "",
+    "image": "images/dammy.jpg"
   },
   {
-    "category": "sweets",
-    "name": "チーズケーキ",
-    "price": 480,
-    "image": "images/sweets.png"
+    "category": "コーヒー",
+    "name": "カフェモカ",
+    "type": "HOT",
+    "description": "",
+    "image": "images/dammy.jpg"
   },
   {
-    "category": "sweets",
-    "name": "ガトーショコラ",
-    "price": 500,
-    "image": "images/sweets.png"
+    "category": "コーヒー",
+    "name": "アイスカフェモカ",
+    "type": "ICE",
+    "description": "",
+    "image": "images/dammy.jpg"
   },
   {
-    "category": "lunch",
-    "name": "サンドイッチセット",
-    "price": 900,
-    "image": "images/lunch.png"
+    "category": "コーヒー",
+    "name": "アイスカフェリモーネ",
+    "type": "ICE",
+    "description": "",
+    "image": "images/dammy.jpg"
   },
   {
-    "category": "lunch",
-    "name": "キッシュプレート",
-    "price": 950,
-    "image": "images/lunch.png"
+    "category": "ホットティー",
+    "name": "オーガニックダージリンエステート",
+    "type": "HOT",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "ホットティー",
+    "name": "オーガニックアールグレイ",
+    "type": "HOT",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "ホットティー",
+    "name": "カモミールシトラス",
+    "type": "HOT",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "アイスティー",
+    "name": "ピュアブラック",
+    "type": "ICE",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "アイスティー",
+    "name": "ワイルドベリーハイビスカスレモネード",
+    "type": "ICE",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "アイスティー",
+    "name": "思いっきりアイスレモンティー",
+    "type": "ICE",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "キッズドリンク",
+    "name": "オレンジジュース",
+    "type": "ICE",
+    "description": "",
+    "image": ""
+  },
+  {
+    "category": "キッズドリンク",
+    "name": "自家製レモネード",
+    "type": "ICE",
+    "description": "",
+    "image": ""
+  },
+  {
+    "category": "カフェラテ",
+    "name": "抹茶カフェラテ",
+    "type": "ICE",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "カフェラテ",
+    "name": "黒糖カフェラテ",
+    "type": "ICE",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "その他",
+    "name": "チョコレートドリンク",
+    "type": "HOT",
+    "description": "",
+    "image": "images/dammy.jpg"
+  },
+  {
+    "category": "その他",
+    "name": "アイスチョコレートドリンク",
+    "type": "ICE",
+    "description": "",
+    "image": "images/dammy.jpg"
   }
 ]
