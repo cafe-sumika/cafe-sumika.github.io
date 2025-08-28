@@ -186,6 +186,21 @@
     <div id="menu-page" class="page">
       <!-- メニューセクション -->
       <section id="menu">
+        <!-- 情報アイコン（画面右上固定） -->
+        <button id="menu-info-btn" class="btn btn-outline-secondary info-button" title="メニューのご案内">
+          ！
+        </button>
+
+        <!-- ポップアップ内容 -->
+        <div id="menu-info-popup" class="card shadow-sm position-absolute p-3"
+          style="display: none; top: 50px; right: 10px; width: 260px; z-index: 11;">
+          <div class="card-body p-2">
+            <p class="mb-0 text-muted" style="font-size: 0.9em;">
+              メニューは季節や仕入れ状況により変更となる場合があります。ご了承ください。
+            </p>
+            <button id="popup-close-btn" class="btn btn-sm btn-outline-secondary mt-2 w-100">閉じる</button>
+          </div>
+        </div>
         <div id="menu-container"></div>
       </section>
 
@@ -195,7 +210,7 @@
       <section id="notice" class="mb-0 position-relative" style="
         color:white;
         position: relative;
-        background: url('images/notice_bg.jpg') center center/cover no-repeat, #2d211a;
+        background-color:#fdfaf6;
         width: 100vw;
         margin-left: 50%;
         transform: translateX(-50%);
@@ -204,12 +219,12 @@
         overflow: hidden;
       ">
         <!-- オーバーレイ -->
-        <div style="position:absolute; inset:0; background:rgba(45,33,26,0.65); z-index:0; pointer-events:none;"></div>
-        <div class="container position-relative" style="z-index:1;">
-          <h2 class="text-center" style="margin-top:15px;margin-bottom:30px;">お知らせ</h2>
+
+        <div class="container position-relative">
+          <h2 class="text-center" style="margin-top:15px;margin:30px 0px 10px 0px;color:#212529;">お知らせ</h2>
           <!-- Instagram -->
           <div style="text-align: center;">
-            <p style="margin-top: 20px; display: inline-flex; align-items: center; gap: 10px;">
+            <p style="margin-top: 20px; display: inline-flex; align-items: center; gap: 10px;color:#212529;">
               Instagramで最新のお知らせをチェック
               <a href="https://www.instagram.com/cafe_sumika/" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"
@@ -219,9 +234,9 @@
           </div>
           <ul id="notices" class="list-group" style="background: transparent;"></ul>
         </div>
-        <div class="container position-relative" style="z-index:1;">
-          <h4 class="text-center" style="margin-top: 20px;">今後の営業予定</h4>
-          <p id="next-day" class="text-center text-muted" style="color:white!important;">計算中...</p>
+        <div class="container position-relative" style="padding-top:50px;">
+          <h4 class="text-center" style="margin: 20px 0px;color:#212529;">今後の営業予定</h4>
+          <p id="next-day" class="text-center text-muted" style="color:#212529!important;">計算中...</p>
           <ul id="upcoming-days" class="list-group mx-auto p-0"
             style="max-width: 500px; border: none; background: transparent; color:white;"></ul>
         </div>
@@ -270,10 +285,6 @@
       document.getElementById('next-day').textContent = next
         ? `次の営業日は ${new Date(next.date).toLocaleDateString('ja-JP')}（${['日', '月', '火', '水', '木', '金', '土'][new Date(next.date).getDay()]}）です`
         : '次の営業日は未定です';
-
-
-
-
       const upcomingList = document.getElementById('upcoming-days');
       if (upcomingList) {
         upcomingList.innerHTML = '';
@@ -435,6 +446,28 @@
 
         showingBg1 = !showingBg1;
       }, 4000);
+    });
+
+    //Infoボタン制御
+    document.addEventListener('DOMContentLoaded', function () {
+      const infoBtn = document.getElementById('menu-info-btn');
+      const popup = document.getElementById('menu-info-popup');
+      const closeBtn = document.getElementById('popup-close-btn');
+
+      infoBtn.addEventListener('click', function () {
+        popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+      });
+
+      closeBtn.addEventListener('click', function () {
+        popup.style.display = 'none';
+      });
+
+      // 他のどこかをクリックしたら閉じる（任意）
+      document.addEventListener('click', function (e) {
+        if (!popup.contains(e.target) && !infoBtn.contains(e.target)) {
+          popup.style.display = 'none';
+        }
+      });
     });
   </script>
 
