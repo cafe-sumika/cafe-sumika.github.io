@@ -29,28 +29,57 @@ nav a {
   text-decoration: none;
   font-weight: bold;
 }
+
 /* メニューページのお知らせアイコン */
 .info-button {
-      position: absolute;
-      top: 20px;
-      right: 15px;
-      z-index: 10;
-      background-color: #6f4e37;  /* オレンジ系 */
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      font-weight: bold;
-      font-size: 1.1em;
-      line-height: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  z-index: 10;
+  background-color: #6f4e37;
+  /* オレンジ系 */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
+
+/* お知らせ関連 */
+
+#notices {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  margin-bottom: 1rem;
+  background: transparent;
+}
+
+#notices .list-group-item {
+  background-color: #fff;
+  /* 明示的に設定（または transparent） */
+  border: none;
+}
+
+/* スクロールバーを目立たせない（任意） */
+#notices::-webkit-scrollbar {
+  width: 6px;
+}
+
+#notices::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
 /* パスワードオーバーレイ */
 #password-overlay {
   position: fixed;
@@ -129,51 +158,10 @@ nav a {
   }
 }
 
-
-
 /* 汎用ページクラス */
 .page {
   display: none;
 }
-
-/* 商品メニュー */
-/* メニュー全体ラッパー */
-/*
-.menu-list, .drink-items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem 0;
-}*/
-
-/* 各メニューアイテム */
-/*
-.menu-item, .drink-item {
-  background: white;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  width: 280px;
-  max-width: 90vw;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.menu-item:hover, .drink-item:hover {
-  transform: scale(1.02);
-}
-
-.menu-item img, .drink-item img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.menu-item .content, .drink-item .content {
-  padding: 0.75rem 1rem;
-}
-*/
 
 /* カテゴリ見出し */
 .drink-category {
@@ -301,30 +289,32 @@ nav a {
 }
 
 /*商品メニュー*/
-    #menu-container {
-      max-width: 1000px;
-      margin: 0 auto; /* 中央に寄せる */
-      padding: 40px 20px;
-    }
+#menu-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  /* 中央に寄せる */
+  padding: 40px 20px;
+}
 
-    .menu-section {
-      margin-bottom: 60px;
-    }
+.menu-section {
+  margin-bottom: 60px;
+}
 
-    .menu-section h2 {
-      font-size: 28px;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
-      text-align: center; /* 中央揃え */
-    }
+.menu-section h2 {
+  font-size: 28px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  /* 中央揃え */
+}
 
-    .menu-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
+.menu-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
 
 .menu-item {
   width: 300px;
@@ -332,10 +322,12 @@ nav a {
   border-radius: 8px;
   background: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-  overflow: hidden; /* 角丸画像に対応 */
+  overflow: hidden;
+  /* 角丸画像に対応 */
   display: flex;
   flex-direction: column;
-  padding: 0; /* 余白削除 */
+  padding: 0;
+  /* 余白削除 */
 }
 
 .menu-item img {
@@ -344,48 +336,53 @@ nav a {
   object-fit: cover;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  display: block; /* 画像の下に余白が出ないように */
+  display: block;
+  /* 画像の下に余白が出ないように */
 }
 
 .menu-item h3 {
   font-size: 16px;
   margin: 20px 10px;
-  text-align: center; 
+  text-align: center;
 }
 
 .menu-item .type {
   font-size: 14px;
   color: #888;
   margin: 0 10px 5px;
-  text-align: center; 
+  text-align: center;
 }
 
 .menu-item p {
   font-size: 14px;
   color: #444;
   margin: 0 10px 20px;
-  text-align: center; 
+  text-align: center;
 }
 
 /* 営業時間 */
 
-#upcoming-days li > div span {
+#upcoming-days li>div span {
   display: inline-block;
   width: 100%;
-   white-space: nowrap; 
+  white-space: nowrap;
 }
+
 #upcoming-days li {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 左右を引き離す */
+  justify-content: space-between;
+  /* 左右を引き離す */
 }
 
-#upcoming-days li > div {
-  flex: 0 0 130px; /* 左：日付（固定幅） */
+#upcoming-days li>div {
+  flex: 0 0 130px;
+  /* 左：日付（固定幅） */
 }
 
-#upcoming-days li > span {
-  flex: 0 0 120px; /* 右：ピル（固定幅） */
+#upcoming-days li>span {
+  flex: 0 0 120px;
+  /* 右：ピル（固定幅） */
   text-align: center;
   white-space: nowrap;
 }
