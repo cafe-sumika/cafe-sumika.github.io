@@ -18,7 +18,7 @@
     "name": "幸せふあふあたまごシフォン",
     "type": "",
     "description": "プレーン、ココア、レモンの3種から選べるシフォンケーキ",
-    "image": "images/dammy.jpg"
+    "image": "images/lemon_cake.jpg"
   },
   {
     "category": "Menu",
@@ -39,7 +39,7 @@
     "name": "アフォガード",
     "type": "",
     "description": "濃厚バニラアイスにエスプレッソをかける大人のアイスクリーム",
-    "image": "images/dammy.jpg"
+    "image": "images/affogato.jpg"
   },
   {
     "category": "コーヒー",
@@ -130,7 +130,7 @@
     "name": "思いっきりアイスレモンティー",
     "type": "ICE",
     "description": "",
-    "image": "images/dammy.jpg"
+    "image": "images/lemon_ice_tea.jpg"
   },
   {
     "category": "キッズドリンク",
