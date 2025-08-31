@@ -573,6 +573,7 @@
           overlay.style.display = 'none';
           document.body.style.overflow = '';
           hamburger.style.display = 'block'; // ← パスワードが正しいとき表示
+          window.scrollTo(0, 0); // ページトップへスクロール
         } else {
           error.style.display = 'block';
           input.value = '';
