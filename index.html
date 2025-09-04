@@ -415,10 +415,17 @@
           const itemDiv = document.createElement('div');
           itemDiv.className = 'menu-item';
 
+
           if (item.image) {
             const img = document.createElement('img');
-            img.src = item.image;
+            img.src = `${item.image}?t=${Date.now()}`;
             img.alt = item.name;
+
+            // 画像が存在しなかったときに sample.png に切り替え
+            img.onerror = function () {
+              this.onerror = null; // 無限ループ防止
+              this.src = 'images/sample.png';
+            };
             itemDiv.appendChild(img);
           }
 

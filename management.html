@@ -38,13 +38,6 @@
             background: #f0f0f0;
         }
 
-        img {
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
         .category-title {
             font-size: 1rem;
             margin: 15px 0 8px;
@@ -75,6 +68,7 @@
             /* 40 → 80px */
             object-fit: cover;
             cursor: pointer;
+            margin:5px;
         }
 
         /* 説明欄 */
@@ -217,14 +211,27 @@
 
                 items.filter(i => i.category === category).forEach(item => tbody.appendChild(createRow(item)));
 
-                const addBtn = document.createElement('button');
-                addBtn.textContent = '＋ 新規追加';
-                addBtn.className = 'btn btn-sm btn-success my-2';
-                addBtn.addEventListener('click', () => {
-                    const newItem = { id: null, name: '', description: '', category, order: (tbody.rows.length + 1) * 10, image: null };
-                    tbody.appendChild(createRow(newItem));
-                });
-                container.appendChild(addBtn);
+const addBtn = document.createElement('button');
+addBtn.textContent = '＋ 新規追加';
+addBtn.className = 'btn btn-sm btn-success my-2';
+addBtn.addEventListener('click', () => {
+    // 既存アイテムの最大 order を計算
+    const orders = items.filter(i => i.category === category).map(i => i.order || 0);
+    const maxOrder = orders.length > 0 ? Math.max(...orders) : 0;
+
+    // 最大 order + 1 をデフォルトにする
+    const newItem = {
+        id: null,
+        name: '',
+        description: '',
+        category,
+        order: maxOrder + 1,
+        image: null
+    };
+    tbody.appendChild(createRow(newItem));
+});
+container.appendChild(addBtn);
+
             });
         }
 
@@ -234,17 +241,17 @@
             const name = item.name || '';
             const description = item.description || '';
             const order = item.order || 0;
-            let imageCellHtml = item.image ? `<div><img src="${item.image}" alt="pic"><br><button class="btn btn-sm btn-outline-danger img-del-btn">画像削除</button></div>` : `<span class="no-image">画像なし</span>`;
+            let imageCellHtml = item.image ? `<div><img src="${item.image}" alt="pic" onerror="this.onerror=null;this.src='images/sample.png';"><br><button class="btn btn-sm btn-outline-danger img-del-btn">画像削除</button></div>` : `<span class="no-image">画像なし</span>`;
             tr.innerHTML = `
-    <td>${imageCellHtml}</td>
-    <td><input type="text" value="${name}" class="form-control"></td>
-    <td><textarea rows="3" class="form-control description-field">${description}</textarea></td>
-    <td><input type="number" value="${order}" class="form-control order-field"></td>
-    <td>
-      <button class="btn btn-sm btn-primary save-btn">保存</button>
-      ${item.id ? '<button class="btn btn-sm btn-danger delete-btn">削除</button>' : ''}
-    </td>
-    `;
+                <td>${imageCellHtml}</td>
+                <td><input type="text" value="${name}" class="form-control"></td>
+                <td><textarea rows="3" class="form-control description-field">${description}</textarea></td>
+                <td><input type="number" value="${order}" class="form-control order-field"></td>
+                <td>
+                <button class="btn btn-sm btn-primary save-btn">保存</button>
+                ${item.id ? '<button class="btn btn-sm btn-danger delete-btn">削除</button>' : ''}
+                </td>
+             `;
             // イベント登録は addEventListener
             const imgEl = tr.querySelector('img');
             const spanEl = tr.querySelector('span.no-image');
@@ -266,6 +273,7 @@
                     item.id = data[0].id;
                 }
                 alert('保存完了');
+                fetchMenuItems();
             });
 
             const delBtn = tr.querySelector('.delete-btn');
@@ -309,6 +317,7 @@
                 imgCell.querySelector('img').addEventListener('click', () => handleImageUpload(tr, item));
                 item.image = urlData.signedUrl;
                 alert('画像アップロード完了');
+                fetchMenuItems();
             };
             input.click();
         }
