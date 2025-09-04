@@ -66,7 +66,7 @@
     <div id="home-page" class="page">
       <!-- ヒーローセクション -->
       <!--<section id="hero" class="hero-section"
-        style="background-image: url('images/top.png'); background-size: cover; background-position: center; height: 60vh; color: white;">-->
+          style="background-image: url('images/top.png'); background-size: cover; background-position: center; height: 60vh; color: white;">-->
       <section id="hero" class="hero-section">
         <div class="bg-slide" id="bg1"></div>
         <div class="bg-slide" id="bg2"></div>
@@ -152,30 +152,34 @@
     <div id="about-page" class="page">
       <!-- カフェについてセクション -->
       <section id="about" class="text-center position-relative mb-0" style="
-        color:white;
-        position: relative;
-        background: url('images/about.png') center center/cover no-repeat, #2d211a;
-        width: 100vw;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        margin-top:0;margin-bottom:0;padding-top:3%;padding-bottom:2.5%;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-        overflow: hidden;
-      ">
+          color:white;
+          position: relative;
+          background: url('images/about_bg.png') center center/cover no-repeat, #2d211a;
+          width: 100vw;
+          margin-left: 50%;
+          transform: translateX(-50%);
+          margin-top:0;margin-bottom:0;padding-top:3%;padding-bottom:2.5%;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+          overflow: hidden;
+        ">
         <!-- オーバーレイ -->
         <div style="
-        position:absolute;
-        inset:0;
-        background:rgba(45,33,26,0.65);
-        z-index:0;
-        pointer-events:none;
-      "></div>
+          position:absolute;
+          inset:0;
+          background:rgba(45,33,26,0.8);
+          z-index:0;
+          pointer-events:none;
+        "></div>
         <div class="container position-relative" style="z-index:1;">
           <h2 style="margin-top:15px;margin-bottom:30px;">当店のこだわり</h2>
           <p>産地直送のこだわりの卵を選んでおります</p>
           <p>珈琲に合うとっておきのスイーツのご提供、</p>
           <p>卵の販売も行っております</p>
           <img src="images/egg.JPG" alt="こだわりイメージ"
+            style="max-width:320px;width:90%;margin-bottom:1.5rem;display:block;margin-left:auto;margin-right:auto;">
+          <p>ワイングラスでリッチな雰囲気を味わえる</p>
+          <p>珍しいメニューもございます</p>
+          <img src="images/wine.jpeg" alt="こだわりイメージ"
             style="max-width:320px;width:90%;margin-bottom:1.5rem;display:block;margin-left:auto;margin-right:auto;">
           <p>オリジナルのグラスにもこだわっております</p>
           <p>是非カフェでの癒しの体験を</p>
@@ -210,15 +214,15 @@
     <div id="notice-page" class="page">
       <!-- お知らせセクション -->
       <section id="notice" class="mb-0 position-relative" style="
-        color:white;
-        position: relative;
-        background-color:#fdfaf6;
-        width: 100vw;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        margin-top:0;margin-bottom:0;padding-top:3%;padding-bottom:2.5%;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      ">
+          color:white;
+          position: relative;
+          background-color:#fdfaf6;
+          width: 100vw;
+          margin-left: 50%;
+          transform: translateX(-50%);
+          margin-top:0;margin-bottom:0;padding-top:3%;padding-bottom:2.5%;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        ">
         <!-- オーバーレイ -->
 
         <div class="container position-relative">
@@ -251,18 +255,22 @@
   </footer>
 
   <!-- スクリプト -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     async function fetchData() {
-      const version = new Date().getTime(); // キャッシュ防止用のタイムスタンプ
+      const supabaseUrl = 'https://cvsmppnkdrizgatuayke.supabase.co';
+      const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2c21wcG5rZHJpemdhdHVheWtlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY3MDMzNjYsImV4cCI6MjA3MjI3OTM2Nn0.f749GIM3SNZ4mGgtvJyvAiBQXjYtiiXomon6g7bjiP8';
+      const { createClient } = supabase;
+      const supabaseClient = createClient(supabaseUrl, supabaseKey);
       const [menuRes, openingRes, noticeRes] = await Promise.all([
-        fetch(`data/menu.json?v=${version}`),
-        fetch(`data/opening_days.json?v=${version}`),
-        fetch(`data/notices.json?v=${version}`)
+        supabaseClient.from('menu_items').select('*').order('category', { ascending: true }),
+        supabaseClient.from('opening_days').select('*').order('date', { ascending: true }),
+        supabaseClient.from('notices').select('*').order('date', { ascending: false }),
       ]);
-      const menu = await menuRes.json();
-      const openings = await openingRes.json();
-      const notices = await noticeRes.json();
 
+      const menu = menuRes.data ?? [];
+      const openings = openingRes.data ?? [];
+      const notices = noticeRes.data ?? [];
       //ハンバーガーアイコン制御
       const menuToggle = document.getElementById('menu-toggle');
       const sideMenu = document.getElementById('side-menu');
@@ -282,17 +290,45 @@
 
       // 営業日描画
       const now = new Date();
-      const next = openings.find(obj => new Date(obj.date) > now);
-      document.getElementById('next-day').textContent = next
-        ? `次の営業日は ${new Date(next.date).toLocaleDateString('ja-JP')}（${['日', '月', '火', '水', '木', '金', '土'][new Date(next.date).getDay()]}）です`
-        : '次の営業日は未定です';
+      const todayStart = new Date(now);
+      todayStart.setHours(0, 0, 0, 0); // 今日0時にリセット
+
+      const next = openings.find(obj => {
+        const entryDate = new Date(obj.date);
+        entryDate.setHours(0, 0, 0, 0); // 日付だけ比較
+        return entryDate >= todayStart;
+      });
+
+      if (next) {
+        const nextDate = new Date(next.date);
+        nextDate.setHours(0, 0, 0, 0);
+
+        const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
+        const label = (nextDate.getTime() === todayStart.getTime()) ? '今日' : nextDate.toLocaleDateString('ja-JP');
+        document.getElementById('next-day').textContent =
+          `次の営業日は ${label}（${dayNames[nextDate.getDay()]}）です`;
+      } else {
+        document.getElementById('next-day').textContent = '次の営業日は未定です';
+      }
+
       const upcomingList = document.getElementById('upcoming-days');
       if (upcomingList) {
         upcomingList.innerHTML = '';
 
         const upcoming = openings
-          .map(obj => ({ date: new Date(obj.date), start: obj.start, end: obj.end }))
-          .filter(entry => entry.date > now)
+          .map(obj => ({
+            date: new Date(obj.date),
+            start: obj.start_time.split(":")[0] + ":" + obj.start_time.split(":")[1],
+            end: obj.end_time.split(":")[0] + ":" + obj.end_time.split(":")[1]
+          }))
+          .filter(entry => {
+            // 日付だけで比較（時刻は無視）する場合
+            const today = new Date();
+            today.setHours(0, 0, 0, 0); // 今日の0時に設定
+            const entryDate = new Date(entry.date);
+            entryDate.setHours(0, 0, 0, 0);
+            return entryDate >= today;
+          })
           .slice(0, 8);
 
         if (upcoming.length === 0) {
@@ -305,16 +341,16 @@
             const li = document.createElement('li');
             li.className = 'list-group-item d-flex align-items-center justify-content-between border-0 bg-white rounded shadow-sm my-1 px-2 py-1';
             li.innerHTML = `
-      <div>
-        <span style="font-weight:bold;font-size:1em;width:50px;">
-          ${entry.date.toLocaleDateString('ja-JP')}
-          <span class="text-secondary" style="font-size:0.9em;">（${['日', '月', '火', '水', '木', '金', '土'][entry.date.getDay()]}）</span>
+        <div>
+          <span style="font-weight:bold;font-size:1em;width:50px;">
+            ${entry.date.toLocaleDateString('ja-JP')}
+            <span class="text-secondary" style="font-size:0.9em;">（${['日', '月', '火', '水', '木', '金', '土'][entry.date.getDay()]}）</span>
+          </span>
+        </div>
+        <span class="badge rounded-pill bg-warning text-dark px-2 py-1" style="font-size:0.95em; letter-spacing:0.03em;">
+          ${entry.start}〜${entry.end}
         </span>
-      </div>
-      <span class="badge rounded-pill bg-warning text-dark px-2 py-1" style="font-size:0.95em; letter-spacing:0.03em;">
-        ${entry.start}〜${entry.end}
-      </span>
-    `;
+      `;
             upcomingList.appendChild(li);
           });
         }
@@ -347,6 +383,15 @@
         if (!grouped[category]) grouped[category] = [];
         grouped[category].push(item);
       });
+
+      // 各カテゴリ内で並び順をソート
+      for (const category in grouped) {
+        grouped[category].sort((a, b) => {
+          const aOrder = a.order ?? 9999;
+          const bOrder = b.order ?? 9999;
+          return aOrder - bOrder;
+        });
+      }
 
       const container = document.getElementById('menu-container');
 
