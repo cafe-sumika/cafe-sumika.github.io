@@ -18,10 +18,16 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <meta name="description" content="cafe sumikaの情報をお届けするホームページです">
+  <meta property="og:title" content="cafe sumika">
+  <meta property="og:description" content="たまごソムリエが厳選した卵とスイーツのカフェ">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cafe-sumika.com/">
+  <meta property="og:image" content="https://cafe-sumika.com/images/ogp.jpg">
 
+  <meta name="twitter:card" content="summary_large_image">
 
   <title>cafe sumika</title>
-  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="icon"  href="/favicon.ico">
 
   <!-- Google Fonts (クラシックなフォントに変更) -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -31,6 +37,36 @@
 
   <!-- 自作スタイル -->
   <link href="css/style.css" rel="stylesheet">
+  <!-- schema.org -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CafeOrCoffeeShop",
+      "name": "cafe sumika",
+      "image": "https://https://cafe-sumika.com/images/ogp.jpg",
+      "url": "https://https://cafe-sumika.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "千葉県",
+        "addressLocality": "八千代市",
+        "streetAddress": "吉橋西ノ台2146",
+        "addressCountry": "JP"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday","Saturday"],
+          "opens": "11:00",
+          "closes": "16:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/cafe_sumika/"
+      ]
+    }
+  </script>
+
+
 </head>
 
 <body>
